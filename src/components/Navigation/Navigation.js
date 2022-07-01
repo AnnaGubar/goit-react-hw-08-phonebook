@@ -12,12 +12,14 @@ function Navigation() {
         >
           Home
         </NavLink>
+
         <NavLink
-          to="/movies"
+          to="/contacts"
           className={({ isActive }) => (isActive ? s['activeLink'] : s['link'])}
         >
-          Movies
+          Contacts
         </NavLink>
+        
       </Container>
     </nav>
   );

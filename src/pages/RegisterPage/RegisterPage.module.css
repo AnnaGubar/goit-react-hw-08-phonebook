@@ -1,0 +1,21 @@
+.title{
+  text-align: center;
+  color: #778ca8;
+}
+
+.form{
+  width: 320px;
+  margin-left: auto;
+  margin-right: auto;
+  color: #778ca8;
+}
+
+.label{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+.btn{
+  margin-left: 25%;
+}

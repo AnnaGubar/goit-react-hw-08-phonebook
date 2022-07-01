@@ -1,0 +1,17 @@
+a{
+  text-decoration: none;
+  margin-left: 15px;
+}
+
+.link {
+  display: inline-block;
+  padding: 12;
+  font-weight: 500;
+  color: #1d3f40;
+}
+
+.activeLink {
+  composes:link;
+  font-size: 20px;
+  color: #e3c6c9
+}
