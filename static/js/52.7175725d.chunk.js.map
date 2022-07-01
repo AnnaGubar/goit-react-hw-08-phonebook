@@ -1,0 +1,1 @@
+{"version":3,"file":"static/js/52.7175725d.chunk.js","mappings":"oMAEe,SAASA,IACtB,OAAO","sources":["pages/PhonebookPage/PhonebookPage.js"],"sourcesContent":["import s from './PhonebookPage.module.css';\r\n\r\nexport default function PhonebookPage() {\r\n  return <h1>PhonebookPage</h1>;\r\n}"],"names":["PhonebookPage"],"sourceRoot":""}
