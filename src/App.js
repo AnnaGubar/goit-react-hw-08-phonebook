@@ -1,37 +1,36 @@
-import Section from './Components/Section';
-import ContactForm from './Components/ContactForm';
-import Filter from './Components/Filter';
-import ContactList from './Components/ContactList';
-import { useContacts } from './hooks/useContacts';
-import { useState, useMemo } from 'react';
-import { useSelector } from 'react-redux';
+import { lazy, Suspense } from 'react';
+import { Route, Routes } from 'react-router-dom';
+
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+
+import AppBar from './components/AppBar';
+import { authOperations } from './redux/auth';
+
+const HomePage = lazy(() => import('./pages/HomePage'));
+const LoginPage = lazy(() => import('./pages/LoginPage'));
+const PhonebookPage = lazy(() => import('./pages/PhonebookPage'));
+const RegisterPage = lazy(() => import('./pages/RegisterPage'));
+
+
 
 function App() {
-  // const [filter, setFilter] = useState('');
+  const dispatch = useDispatch();
 
-  const { data, transformValue } = useContacts();
-  const filter = useSelector(state => state.filter.value);
-
-  const filteredContacts = useMemo(() => {
-    return data?.filter(
-      contact =>
-        transformValue(contact.name).includes(transformValue(filter)) ?? []
-    );
-  }, [data, transformValue, filter]);
-
+  useEffect(() => {
+    dispatch(authOperations.fetchCurrentUser());
+  }, [dispatch]);
   return (
     <>
-      <Section title="Phonebook">
-        <ContactForm />
-      </Section>
-
-      <Section title="Contacts">
-        <Filter />
-        {/* аналог с контролируемой формой */}
-        {/* <Filter value={filter} onChange={setFilter} /> */}
-
-        <ContactList filteredContacts={filteredContacts} />
-      </Section>
+      <AppBar />
+      <Suspense fallback={<div>Loading...</div>}>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/register " element={<RegisterPage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/contacts" element={<PhonebookPage />} />
+        </Routes>
+      </Suspense>
     </>
   );
 }
