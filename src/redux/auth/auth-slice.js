@@ -16,6 +16,7 @@ const authSlice = createSlice({
       state.user = action.payload.user; //получены данные пользователя
       state.token = action.payload.token; // получен токен
       state.isLoggedIn = true; // пользователь залогинился
+      // state.isLoggedIn = true; // пользователь залогинился
     },
 
     [authOperations.logIn.fulfilled](state, action) {
