@@ -4,7 +4,7 @@ export default function HomePage() {
   return (
   <div className={s.home_page}>
     <h1 className={s.title}>This is the PhoneBook Application </h1>
-    <p className={s.text}> Enjoy using </p>
+    <p className={s.text}> Enjoy it! </p>
     </div>
     );
   }

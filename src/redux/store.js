@@ -11,8 +11,8 @@ import {
   REGISTER,
 } from 'redux-persist';
 
-// import { contactsReducer } from './contacts/contactsSlice';
-import { authReducer } from './auth';
+import { contactsReducer } from './contacts/contacts-slice';
+import { authReducer } from './auth/auth-slice';
 
 const defaultMiddleware = {
   serializableCheck: {
@@ -29,7 +29,7 @@ const authPersistConfig = {
 export const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authReducer),
-    // contacts: contactsReducer,
+    contacts: contactsReducer,
   },
   middleware: getDefaultMiddleware => getDefaultMiddleware(defaultMiddleware),
 });

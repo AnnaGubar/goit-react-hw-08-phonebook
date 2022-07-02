@@ -20,22 +20,22 @@ const token = {
 const register = createAsyncThunk('auth/register', async credentials => {
   try {
     const { data } = await axios.post('/users/signup', credentials);
-    token.set(data.token); 
+    token.set(data.token);
     return data;
   } catch (error) {
-    console.log(error); 
+    console.log(error);
   }
 });
 
 /*
- * POST @ /users/login 
+ * POST @ /users/login
  * body: { email, password } - credentials
  * После успешного логина добавляем токен в HTTP-заголовок
  */
 const logIn = createAsyncThunk('auth/login', async credentials => {
   try {
     const { data } = await axios.post('/users/login', credentials);
-    token.set(data.token); 
+    token.set(data.token);
     return data;
   } catch (error) {
     console.log(error);
@@ -46,8 +46,8 @@ const logIn = createAsyncThunk('auth/login', async credentials => {
  * POST @ /users/logout
  * headers: Authorization: Bearer token
  * После успешного логаута, удаляем токен из HTTP-заголовка
- */ 
- const logOut = createAsyncThunk('auth/logout', async () => {
+ */
+const logOut = createAsyncThunk('auth/logout', async () => {
   try {
     await axios.post('/users/logout');
     token.unset();
@@ -82,12 +82,12 @@ const fetchCurrentUser = createAsyncThunk(
     } catch (error) {
       console.log(error);
     }
-  },
+  }
 );
 
 const operations = {
   register, // получает RegisterPage
-  logOut, // получает UserMenu 
+  logOut, // получает UserMenu
   logIn, // получает LoginPage
   fetchCurrentUser,
 };
