@@ -56,6 +56,7 @@ const logOut = createAsyncThunk('auth/logout', async () => {
   }
 });
 /*
+ * рефреш (перезагрузка страницы)
  * GET @ /users/current
  * headers:
  *    Authorization: Bearer token
@@ -67,15 +68,19 @@ const logOut = createAsyncThunk('auth/logout', async () => {
 const fetchCurrentUser = createAsyncThunk(
   'auth/refresh',
   async (_, thunkAPI) => {
-    const state = thunkAPI.getState();
-    const persistedToken = state.auth.token;
+    const state = thunkAPI.getState(); // redux state
+    const persistedToken = state.auth.token; // текущий токен
 
+    // если токена нет то пользователь не зареган/залогинен - рефреш невозможен
     if (persistedToken === null) {
       console.log('Токена нет, уходим из fetchCurrentUser');
       return thunkAPI.rejectWithValue();
     }
 
+     // если токен есть - записываем в state
     token.set(persistedToken);
+    
+    // получаем данные пользователя
     try {
       const { data } = await axios.get('/users/current');
       return data;
@@ -89,7 +94,7 @@ const operations = {
   register, // получает RegisterPage
   logOut, // получает UserMenu
   logIn, // получает LoginPage
-  fetchCurrentUser,
+  fetchCurrentUser, // получает App
 };
 
 export default operations;

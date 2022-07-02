@@ -1,6 +1,7 @@
-import { 
+import {
   // useState,
-   useMemo } from 'react';
+  useMemo,
+} from 'react';
 // import { useSelector } from 'react-redux';
 import Section from '../../components/PhoneBook/Section';
 import ContactForm from '../../components/PhoneBook/ContactForm';
@@ -9,9 +10,8 @@ import ContactList from '../../components/PhoneBook/ContactList';
 import { useContacts } from '../../hooks/useContacts';
 
 function App() {
-
-  const { contacts,filter, transformValue } = useContacts();
-  console.log("⭐ ~ contacts", contacts)
+  const { contacts, filter, transformValue } = useContacts();
+  console.log('⭐ ~ contacts', contacts);
 
   const filteredContacts = useMemo(() => {
     return contacts?.filter(

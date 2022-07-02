@@ -17,9 +17,11 @@ const PhonebookPage = lazy(() => import('./pages/PhonebookPage'));
 function App() {
   const dispatch = useDispatch();
 
+  // рефреш токена
   useEffect(() => {
     dispatch(authOperations.fetchCurrentUser());
   }, [dispatch]);
+
   return (
     <>
       <AppBar />

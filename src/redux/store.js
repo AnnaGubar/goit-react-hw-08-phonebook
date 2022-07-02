@@ -20,6 +20,7 @@ const defaultMiddleware = {
   },
 };
 
+// сохранение токена для рефреша (перезагрузка страницы)
 const authPersistConfig = {
   key: 'auth',
   storage,
