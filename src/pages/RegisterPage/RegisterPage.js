@@ -9,6 +9,8 @@ export default function RegisterPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+
+  //                    e.target.name / e.target.value
   const handleChange = ({ target: { name, value } }) => {
     switch (name) {
       case 'name':
@@ -24,7 +26,11 @@ export default function RegisterPage() {
 
   const handleSubmit = e => {
     e.preventDefault();
+
+      //отправляем введенные данные в бекенд
     dispatch(authOperations.register({ name, email, password }));
+
+     //очищаем форму
     setName('');
     setEmail('');
     setPassword('');

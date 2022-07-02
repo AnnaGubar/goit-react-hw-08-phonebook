@@ -2,7 +2,6 @@ import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
 axios.defaults.baseURL = 'https://connections-api.herokuapp.com';
-// axios.defaults.baseURL = 'https://lpj-tasker.herokuapp.com';
 
 const token = {
   set(token) {
@@ -48,7 +47,7 @@ const logIn = createAsyncThunk('auth/login', async credentials => {
  * headers: Authorization: Bearer token
  * После успешного логаута, удаляем токен из HTTP-заголовка
  */ 
-const logOut = createAsyncThunk('auth/logout', async () => {
+ const logOut = createAsyncThunk('auth/logout', async () => {
   try {
     await axios.post('/users/logout');
     token.unset();
@@ -87,9 +86,10 @@ const fetchCurrentUser = createAsyncThunk(
 );
 
 const operations = {
-  register,
-  logOut,
-  logIn,
+  register, // получает RegisterPage
+  logOut, // получает UserMenu 
+  logIn, // получает LoginPage
   fetchCurrentUser,
 };
+
 export default operations;

@@ -8,6 +8,7 @@ export default function LoginPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+ //                     e.target.name / e.target.value
   const handleChange = ({ target: { name, value } }) => {
     switch (name) {
       case 'email':
@@ -21,7 +22,11 @@ export default function LoginPage() {
 
   const handleSubmit = e => {
     e.preventDefault();
+
+    //отправляем введенные данные в бекенд
     dispatch(authOperations.logIn({ email, password }));
+
+    //очищаем форму
     setEmail('');
     setPassword('');
   };
