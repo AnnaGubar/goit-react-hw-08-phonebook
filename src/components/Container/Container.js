@@ -1,4 +1,4 @@
-import s from './Container.module.css';
+// import s from './Container.module.css';
 
 function Container({children}) {
   return <section>{children}</section>;
