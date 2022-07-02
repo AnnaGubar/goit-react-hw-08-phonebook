@@ -1,8 +1,8 @@
 import { NavLink } from 'react-router-dom';
 import Container from '../Container';
-import s from './Navigation.module.css';
+import s from './HomeNav.module.css';
 
-function Navigation() {
+function HomeNav() {
   return (
     <nav>
       <Container>
@@ -25,4 +25,4 @@ function Navigation() {
   );
 }
 
-export default Navigation;
+export default HomeNav;
