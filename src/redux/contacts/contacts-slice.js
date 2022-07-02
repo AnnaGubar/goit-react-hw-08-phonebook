@@ -6,14 +6,14 @@ const contactsSlice = createSlice({
   initialState: {
     entities: [],
     filter: '',
-    status: null,
-    error: null,
   },
+  
   reducers: {
     setFilterReducer(state, action) {
       state.filter = action.payload;
     },
   },
+
   extraReducers: {
     [getContactsRequest.fulfilled]: (state, { payload }) => {
       state.entities = payload;
