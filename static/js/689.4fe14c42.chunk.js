@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkgoit_react_hw_08_phonebook=self.webpackChunkgoit_react_hw_08_phonebook||[]).push([[689],{1689:function(e,t,i){i.r(t),i.d(t,{default:function(){return s}});var n={title:"HomePage_title__UFLA3",text:"HomePage_text__2XixT"},o=i(3329);function s(){return(0,o.jsxs)("div",{className:n.home_page,children:[(0,o.jsx)("h1",{className:n.title,children:"This is the PhoneBook Application "}),(0,o.jsx)("p",{className:n.text,children:" Enjoy using "})]})}}}]);
+//# sourceMappingURL=689.4fe14c42.chunk.js.map
