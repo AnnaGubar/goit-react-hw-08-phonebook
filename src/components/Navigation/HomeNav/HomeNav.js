@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import Container from '../Container';
+import Container from '../../Container';
 import s from './HomeNav.module.css';
 
 function HomeNav() {

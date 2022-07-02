@@ -4,7 +4,7 @@ import { Route, Routes } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 
-import AppBar from './components/AppBar';
+import AppBar from './components/Navigation/AppBar';
 import { authOperations } from './redux/auth';
 
 const HomePage = lazy(() => import('./pages/HomePage'));

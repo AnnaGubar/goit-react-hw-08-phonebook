@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux';
-import Navigation from '../Navigation';
+import HomeNav from '../HomeNav';
 import AuthNav from '../AuthNav';
 import UserMenu from '../UserMenu';
 
@@ -10,7 +10,7 @@ export default function AppBar() {
   
   return (
     <header className={s.header}>
-      <Navigation />
+      <HomeNav />
        {isLoggedIn ? <UserMenu /> : <AuthNav />}
       </header>
   );

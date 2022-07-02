@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import {authOperations } from '../../redux/auth';
+import {authOperations } from '../../../redux/auth';
 import defaultAvatar from './default-avatar.png';
 import s from './UserMenu.module.css'
 

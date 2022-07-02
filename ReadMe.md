@@ -4,7 +4,7 @@
 
 3. Создание store.js => store/middleware/persistor
 
-4. Создаем навигацию приложения => AppBar (Navigation AuthNav UserMenu)
+4. Создаем навигацию приложения => AppBar (HomeNav AuthNav UserMenu)
 
 5. Cозданием страницы HomePage PhonebookPage LoginPage RegisterPage => добавление валидации формам
 
