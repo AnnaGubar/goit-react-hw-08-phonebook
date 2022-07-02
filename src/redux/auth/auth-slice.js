@@ -5,6 +5,7 @@ const initialState = {
   user: { name: null, email: null },
   token: null,
   isLoggedIn: false,
+  isFetchingCurrentUser:false, // запрос данных на бекенд
 };
 
 const authSlice = createSlice({
@@ -30,9 +31,18 @@ const authSlice = createSlice({
       state.isLoggedIn = false; // пользователь разлогинился
     },
 
+    [authOperations.fetchCurrentUser.pending](state) {
+      state.isFetchingCurrentUser = true; // запрос данных на бекенд -> true
+    },
+
     [authOperations.fetchCurrentUser.fulfilled](state, action) {
       state.user = action.payload; // получение данных пользователя 
       state.isLoggedIn = true; // пользователь залогинен
+      state.isFetchingCurrentUser = false; // запрос данных на бекенд -> false так как уже fulfilled
+    },
+
+    [authOperations.fetchCurrentUser.rejected](state) {
+      state.isFetchingCurrentUser = false; // запрос данных на бекенд -> false потому что rejected
     },
 
   },

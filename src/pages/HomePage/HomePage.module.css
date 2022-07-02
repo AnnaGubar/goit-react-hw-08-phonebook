@@ -2,3 +2,9 @@
   text-align: center;
   color: #778ca8;
 }
+
+.text_hint{
+  composes:text;
+  margin-top: 200px;
+  color: rgba(223, 25, 197, 0.675);
+}

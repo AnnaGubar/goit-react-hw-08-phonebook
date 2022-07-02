@@ -53,4 +53,6 @@
 - auth-slice.js =>
   `[authOperations.fetchCurrentUser.fulfilled](state, action) { state.user = action.payload; state.isLoggedIn = true;}`
 
-<!-- 10. Реализация получения приватных данных возможна только через токен. -->
+12. Создание PrivateRoute и PublicRoute => создаем js файлы и затаскиваем в App.js 
+
+13. Что бы при перезагрузке не прыгала разметка -> реализовано isFetchingCurrentUser в auth-slice.js

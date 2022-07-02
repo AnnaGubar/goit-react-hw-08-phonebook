@@ -2,7 +2,7 @@ import { lazy, Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
 import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import {PublicRoute} from './components/PublicRoute'
 import {PrivateRoute} from './components/PrivateRoute'
@@ -18,29 +18,39 @@ const PhonebookPage = lazy(() => import('./pages/PhonebookPage'));
 function App() {
   const dispatch = useDispatch();
 
+  // статус pending
+  const isFetchingCurrentUser = useSelector(state => state.auth.isFetchingCurrentUser);
+  // console.log("⭐ ~ getIsFetchingCurrentUser", isFetchingCurrentUser)
+
   // рефреш токена
   useEffect(() => {
     dispatch(authOperations.fetchCurrentUser());
   }, [dispatch]);
 
   return (
+    // рендерим только когда статус pending = false (то есть данные получены и статус fullfilled)
+    !isFetchingCurrentUser && (
     <>
       <AppBar />
       <Suspense fallback={<div>Loading...</div>}>
         <Routes>
-          {/* <Route path="/" element={<HomePage />} />
-          <Route path="/contacts" element={<PhonebookPage />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/register" element={<RegisterPage />} /> */}
 
+          {/* в любом случае рендерится HomePage */}
           <Route path="/" element={<PublicRoute><HomePage /></PublicRoute>}/>
+
+          {/* если залогинен => PhonebookPage, если нет => редирект на /login */}
           <Route path="contacts" element={<PrivateRoute redirectTo="/login"><PhonebookPage /></PrivateRoute>}/>
+
+           {/* если залогинен => редирект на /contacts, если нет => LoginPage */}
           <Route path="login" element={<PublicRoute redirectTo="/contacts" restricted><LoginPage /></PublicRoute>}/>
+
+           {/*  в любом случае рендерится RegisterPage */}
           <Route path="register" element={<PublicRoute restricted><RegisterPage /></PublicRoute>}/>
+
         </Routes>
       </Suspense>
     </>
-  );
+  ));
 }
 
 export default App;
