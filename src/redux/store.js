@@ -1,4 +1,8 @@
 import { configureStore} from '@reduxjs/toolkit';
+import { contactsReducer } from './contacts/contacts-slice';
+import { authReducer } from './auth/auth-slice';
+
+// сохранение токена для рефреша (перезагрузка страницы)
 import storage from 'redux-persist/lib/storage';
 import {
   persistStore,
@@ -11,9 +15,8 @@ import {
   REGISTER,
 } from 'redux-persist';
 
-import { contactsReducer } from './contacts/contacts-slice';
-import { authReducer } from './auth/auth-slice';
 
+// сохранение токена для рефреша (перезагрузка страницы)
 const defaultMiddleware = {
   serializableCheck: {
     ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],

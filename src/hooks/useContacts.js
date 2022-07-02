@@ -2,7 +2,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import {
   addContactRequest,
   deleteContactRequest,
-} from 'redux/contacts/contacts-operations';
+} from '../redux/contacts/contacts-operations';
 import { setFilterReducer } from '../redux/contacts/contacts-slice';
 
 export function useContacts() {
