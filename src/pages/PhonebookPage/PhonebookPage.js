@@ -11,7 +11,6 @@ import { useContacts } from '../../hooks/useContacts';
 
 function App() {
   const { contacts, filter, transformValue } = useContacts();
-  // console.log('⭐ ~ contacts', contacts);
 
   const filteredContacts = useMemo(() => {
     return contacts?.filter(
@@ -29,6 +28,7 @@ function App() {
       <Section title="Contacts">
         <Filter />
 
+        {/* <ContactList filteredContacts={contacts} /> */}
         <ContactList filteredContacts={filteredContacts} />
       </Section>
     </>
