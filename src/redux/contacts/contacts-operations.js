@@ -51,7 +51,7 @@ export const addContactRequest = createAsyncThunk(
 
       return data;
     } catch (error) {
-      return thunkAPI.rejectWithValue(error);
+      return rejectWithValue(error.message);
     }
   }
 );
