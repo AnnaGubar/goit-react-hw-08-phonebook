@@ -1,5 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
 import {
+  getContactsRequest,
   addContactRequest,
   deleteContactRequest,
 } from '../redux/contacts/contacts-operations';
@@ -7,9 +8,10 @@ import { setFilterReducer } from '../redux/contacts/contacts-slice';
 
 export function useContacts() {
   const dispatch = useDispatch();
-
-  const contacts = useSelector(state => state.contacts.entities);
+// let contacts = useSelector(state => state.contacts.entities);
   const filter = useSelector(state => state.contacts.filter);
+
+  const contacts = () => dispatch(getContactsRequest());
 
   const addContact = newContact => dispatch(addContactRequest(newContact));
   const deleteContact = id => dispatch(deleteContactRequest(id));
@@ -32,5 +34,7 @@ export function useContacts() {
     addContact,
     deleteContact,
     setFilter,
+
+    // getContacts,
   };
 }
