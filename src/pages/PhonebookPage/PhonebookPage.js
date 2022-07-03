@@ -11,7 +11,7 @@ import { useContacts } from '../../hooks/useContacts';
 
 function App() {
   const { contacts, filter, transformValue } = useContacts();
-  console.log('⭐ ~ contacts', contacts);
+  // console.log('⭐ ~ contacts', contacts);
 
   const filteredContacts = useMemo(() => {
     return contacts?.filter(
