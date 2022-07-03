@@ -8,8 +8,7 @@ import { setFilterReducer } from '../redux/contacts/contacts-slice';
 
 export function useContacts() {
   const dispatch = useDispatch();
-
-  // const contacts = useSelector(state => state.contacts.entities);
+// let contacts = useSelector(state => state.contacts.entities);
   const filter = useSelector(state => state.contacts.filter);
 
   const contacts = () => dispatch(getContactsRequest());
