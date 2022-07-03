@@ -3,38 +3,36 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 
 export const getContactsRequest = createAsyncThunk(
   'contacts/getContacts',
-  async (_, { rejectWithValue }) => {
+  async () => {
     try {
       const { data } = await axios.get('/contacts');
       return data;
     } catch (error) {
-      return rejectWithValue(error.message);
+      console.log(error);
     }
   }
 );
 
 export const addContactRequest = createAsyncThunk(
   'contacts/addContact',
-  async (values, { rejectWithValue }) => {
+  async (values) => {
     try {
       const { data } = await axios.post('/contacts', values);
       return data;
     } catch (error) {
-
-      // return rejectWithValue(error.message);
-      return rejectWithValue(error.message);
+      console.log(error);
     }
   }
 );
 
 export const deleteContactRequest = createAsyncThunk(
   'contacts/deleteContact',
-  async (id, { rejectWithValue }) => {
+  async (id) => {
     try {
       await axios.delete(`/contacts/${id}`);
       return id;
     } catch (error) {
-      return rejectWithValue(error.message);
+      console.log(error);
     }
   }
 );
